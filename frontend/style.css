@@ -45,7 +45,7 @@ body {
     .disclaimer {
         font-size: 0.9rem;
         padding: 0.8rem;
-        white-space: normal;
+        white-space: normal; /* Allows wrapping for smaller screens */
     }
     body {
         padding-top: 60px; /* More padding for smaller screens */
@@ -65,15 +65,13 @@ body {
 
 
 
-/* ---- Your custom styles below ---- */
-
 /* Medicine Card Styling */
 .medicine-card {
     background-color: white;
     padding: 15px;
     margin: 10px;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
     text-align: center;
 }
 
@@ -89,6 +87,7 @@ button {
     margin-top: 10px;
 }
 
+/* Button Hover Effect */
 button:hover {
     background-color: #1c6b8a;
 }
@@ -113,7 +112,7 @@ button:hover {
     transform: translateX(50%);
 }
 
-
+/* Add Medicine Form Button */
 #open-form {
     background-color: #2881a7;
     color: white;
@@ -125,6 +124,7 @@ button:hover {
     font-weight: bold;
 }
 
+/* Hover Effect for Form Button */
 #open-form:hover {
     background-color: #1c6b8a;
 }
@@ -161,7 +161,7 @@ button:hover {
     border-radius: 4px;
 }
 
-/* Submit Button */
+/* Submit Button for Form */
 #medicine-form button {
     width: 100%;
     margin-top: 15px;
@@ -199,4 +199,87 @@ header h1 {
     text-decoration: underline;
     text-decoration-color: rgb(255, 55, 0);
     text-underline-offset: 5px; /* Adjust spacing between text and underline */
+}
+
+/*  Sort By Feature */
+
+/* Search Bar and Sort Button Container */
+.search-sort-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* Sort Button Styles */
+#sort-button {
+    background-color: #2881a7;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Sort Options Dropdown */
+#sort-options {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #cccccc00;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+    z-index: 1001; /* Ensures dropdown stays above other elements */
+}
+
+/* Individual Sort Option Styling */
+#sort-options button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+/* Hover Effect for Sort Options */
+#sort-options button:hover {
+    background-color: rgb(255, 55, 0);
+}
+
+/* Show dropdown when active */
+#sort-options.show {
+    display: block;
+}
+
+/* Responsive for Smaller Screens */
+@media (max-width: 768px) {
+    .search-sort-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #sort-button {
+        width: 60%;
+    }
+
+    #sort-options {
+        width: 60%;
+    }
+}
+
+/* Responsive for very small screens */
+@media (max-width: 480px) {
+    #sort-button {
+        width: 80%;
+        font-size: 14px;
+    }
+
+    #sort-options {
+        width: 80%;
+    }
 }

@@ -126,3 +126,61 @@ window.addEventListener("scroll", function() {
         addButton.classList.remove("bottom"); // Keeps button floating
     }
 });
+
+let currentMedicines = []; // Store fetched medicines for sorting
+
+// Fetch and store medicines
+function fetchMedicines() {
+    fetch("http://127.0.0.1:8000/medicines")
+        .then(response => response.json())
+        .then(data => {
+            currentMedicines = data.medicines; // Store medicines
+            displayMedicines(currentMedicines);
+        })
+        .catch(error => console.error("Error fetching medicines:", error));
+}
+
+// Display medicines dynamically
+function displayMedicines(medicines) {
+    const mainContainer = document.getElementById("medicines-container");
+    mainContainer.innerHTML = ""; // Clear previous content
+
+    medicines.forEach(med => {
+        const name = med.name.trim() === "" ? "Unknown Name" : med.name;
+        const price = med.price === null ? "Not Available" : `£${med.price.toFixed(2)}`;
+
+        const medCard = document.createElement("div");
+        medCard.classList.add("medicine-card");
+        medCard.innerHTML = `
+            <h2>${name}</h2>
+            <p>Price: ${price}</p>
+        `;
+
+        mainContainer.appendChild(medCard);
+    });
+}
+
+// Handle sort button click
+document.getElementById("sort-button").addEventListener("click", () => {
+    const sortOptions = document.getElementById("sort-options");
+    sortOptions.classList.toggle("show"); // Toggle dropdown
+});
+
+// Apply sorting based on selection
+document.querySelectorAll(".sort-option").forEach(option => {
+    option.addEventListener("click", function () {
+        const sortOrder = this.getAttribute("data-sort");
+
+        // Sort medicines based on price
+        const sortedMedicines = currentMedicines.slice().sort((a, b) => {
+            if (a.price === null) return 1;
+            if (b.price === null) return -1;
+            return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
+        });
+
+        displayMedicines(sortedMedicines);
+
+        // Close dropdown after selection
+        document.getElementById("sort-options").classList.remove("show");
+    });
+});

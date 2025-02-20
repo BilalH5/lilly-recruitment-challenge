@@ -3,22 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Medicine Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="disclaimer" id="disclaimer">
         Disclaimer: All medicine names and prices used in this application are fictional and do not represent any real medicine(s).
     </div>
+
+    <!-- Average Price Display -->
     <h2 id="average-price">Loading average price...</h2>
-    <input type="text" id="search-bar" placeholder=" Search medicines">
+
+    <!-- Search and Sort Section -->
+    <div class="search-sort-container">
+        <input type="text" id="search-bar" placeholder="Search medicines">
+
+        <!-- Sort By Dropdown -->
+        <div class="sort-container">
+            <button id="sort-button">Sort By ▼</button>
+            <div id="sort-options" class="hidden">
+                <button class="sort-option" data-sort="asc">Price: Low to High</button>
+                <button class="sort-option" data-sort="desc">Price: High to Low</button>
+            </div>
+        </div>
+    </div>
+
     <header>
         <h1>Medicine Tracker</h1>
     </header>
-    
-    <main>
-        
 
+    <main>
         <h1>Medicine List</h1>
         <!-- Container where medicines will be displayed -->
         <div id="medicines-container"></div>
