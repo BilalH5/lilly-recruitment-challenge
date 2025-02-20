@@ -30,3 +30,127 @@ body {
 }
 
 /* ---- Your custom styles below ---- */
+
+/* Medicine Card Styling */
+.medicine-card {
+    background-color: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    text-align: center;
+}
+
+/* Standard Button Styling */
+button {
+    background-color: #2881a7;  
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1c6b8a;
+}
+
+/* ---- Floating Add Medicine Button ---- */
+.add-medicine-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2881a7;
+    padding: 12px;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#open-form {
+    background-color: #2881a7;
+    color: white;
+    padding: 14px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#open-form:hover {
+    background-color: #1c6b8a;
+}
+
+/* ---- Hidden Form Styles ---- */
+.hidden {
+    display: none;
+}
+
+/* Form Container (Initially Hidden) */
+#medicine-form-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 250px;
+}
+
+/* Form Input Fields */
+#medicine-form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#medicine-form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Submit Button */
+#medicine-form button {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Average Price Styling */
+#average-price {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #1c6b8a; /* Keeps the blue background */
+    color: white; /* Makes text white */
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgb(16, 16, 16);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Search Bar Styling */
+#search-bar {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 15px auto;
+    display: block;
+}
+
+
+header h1 {
+    text-decoration: underline;
+    text-decoration-color: rgb(255, 55, 0);
+    text-underline-offset: 5px; /* Adjust spacing between text and underline */
+}
