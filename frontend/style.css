@@ -16,6 +16,7 @@ body {
 }
 
 /* Disclaimer styles. DO NOT REMOVE OR EDIT UNLESS ABSOLUTELY NECESSARY */
+/* Responsive Disclaimer */
 .disclaimer {
     position: fixed;
     top: 0;
@@ -26,8 +27,43 @@ body {
     padding: 0.5rem;
     z-index: 1000;
     font-weight: bold;
-    height: 30px;
+    height: auto; /* Adjust height dynamically */
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
 }
+
+/* Add padding to prevent overlap */
+body {
+    padding-top: 50px; /* Pushes content down so it's not hidden */
+}
+
+/* Adjusts for smaller screens (Mobile-Friendly) */
+@media (max-width: 768px) {
+    .disclaimer {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+        white-space: normal;
+    }
+    body {
+        padding-top: 60px; /* More padding for smaller screens */
+    }
+}
+
+/* Adjusts for very small screens (Phones) */
+@media (max-width: 480px) {
+    .disclaimer {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+    body {
+        padding-top: 70px; /* Ensures enough space for smaller screens */
+    }
+}
+
+
 
 /* ---- Your custom styles below ---- */
 
@@ -57,7 +93,7 @@ button:hover {
     background-color: #1c6b8a;
 }
 
-/* ---- Floating Add Medicine Button ---- */
+/* Floating Add Medicine Button */
 .add-medicine-container {
     position: fixed;
     bottom: 20px;
@@ -66,7 +102,17 @@ button:hover {
     padding: 12px;
     border-radius: 50px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: bottom 0.3s ease-in-out; /* Smooth transition effect */
 }
+
+/* Move the button below the last medicine card when at bottom */
+.add-medicine-container.bottom {
+    position: absolute;
+    bottom: 0;
+    right: 50%; /* Centering the button */
+    transform: translateX(50%);
+}
+
 
 #open-form {
     background-color: #2881a7;
@@ -83,7 +129,7 @@ button:hover {
     background-color: #1c6b8a;
 }
 
-/* ---- Hidden Form Styles ---- */
+/* Hidden Form Styles */
 .hidden {
     display: none;
 }
@@ -148,7 +194,7 @@ button:hover {
     display: block;
 }
 
-
+/* Underline for Medicine Tracker */
 header h1 {
     text-decoration: underline;
     text-decoration-color: rgb(255, 55, 0);
